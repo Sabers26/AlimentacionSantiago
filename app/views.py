@@ -29,26 +29,61 @@ def registro(request):
         
         formulario = RegistroForm(data=data)
         
-        if formulario.is_valid:
-            
-            if not password:
-                formulario.add_error('password', 'Agregue una contraseña')
+        if formulario.is_valid():
+            if User.objects.filter(username=usuario).exists():
+                context = {
+                'mensaje': '',
+                'errores': {},
+                'data': request.POST,
+                'error_pass': '',
+                'error_user': 'El usuario ingresado ya se encuentra registrado'
+                }
+                return render(request, 'app/registro/registro.html', context)
             else:
-                usr = User()
-                usr.username = usuario
-                usr.set_password(password)
-                
-                usr.save()
-                
-                cliente = formulario.save(commit=False)
-                cliente.rut = rut
-                cliente.dv = dv
-                cliente.nombre = nombre
-                cliente.apellido = apellido
-                cliente.usuario = usr
-                cliente.correo = correo
-                cliente.save()
-                
-                return redirect('login')
+                if not password:
+                    context = {
+                    'mensaje': '',
+                    'errores': {},
+                    'data': request.POST,
+                    'error_pass': 'Ingrese una contraseña',
+                    'error_user': ''
+                    }
+                    return render(request, 'app/registro/registro.html', context)
+                else:
+                    usr = User()
+                    usr.username = usuario
+                    usr.set_password(password)
+                    
+                    usr.save()
+                    
+                    cliente = formulario.save(commit=False)
+                    cliente.rut = rut
+                    cliente.dv = dv
+                    cliente.nombre = nombre
+                    cliente.apellido = apellido
+                    cliente.usuario = usr
+                    cliente.correo = correo
+                    cliente.save()
+                    
+                    #return redirect('login')
+                    context = {
+                        'mensaje': 'cliente creado exitosamente',
+                        'errores': {},
+                        'data': {}
+                    }
+                    return render(request, 'app/registro/registro.html', context)
+        else:
+            error = formulario.errors.get_json_data()
+            context = {
+                'mensaje': '',
+                'errores': error,
+                'data': request.POST
+            }
+            return render(request, 'app/registro/registro.html', context)
     
-    return render(request, 'app/registro/registro.html')
+    context = {
+        'mensaje': '',
+        'errores': {},
+        'data': {}
+    }
+    return render(request, 'app/registro/registro.html', context)

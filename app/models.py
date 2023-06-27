@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 #Validacion de los campos de usuario
 def validar_rut(value):
     error = 'El rut ingresado no es valido. Ingreselo sin puntos ni digito verificador'
-    if len(value) < 7 or len(value) > 8:
+    if len(str(value)) < 7 or len(str(value)) > 8:
         raise ValidationError(error)
     
     value2 = str(value)
