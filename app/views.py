@@ -8,6 +8,7 @@ from django.contrib.auth import login, authenticate
 
 
 #Vista de registro de cuenta de usuario
+#PRIMERA REGLA DE ING: SI FUNCIONA NO LO TOQUEN
 def registro(request):
     
     if request.method == 'POST':
@@ -87,3 +88,29 @@ def registro(request):
         'data': {}
     }
     return render(request, 'app/registro/registro.html', context)
+
+
+def inicio_sesion(request):
+    data = {
+        'msg': ''
+    }
+    if request.method == 'POST':
+        
+        usuario = request.POST['usuario']
+        password = request.POST['password']
+        
+        usr = authenticate(username=usuario, password=password)
+        
+        if usr is not None:
+            login(request, usr)
+            return redirect(to=inicio)
+        
+        else:
+            data = {
+                'msg': 'Usuario y/o Contraseña Invalidos'
+            }
+    
+    return render(request, 'app/registro/login.html', data)
+
+def inicio(request):
+    return render(request, 'app/index.html')

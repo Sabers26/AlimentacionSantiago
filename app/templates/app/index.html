@@ -1,0 +1,15 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block contenido %}
+    <h1>Hola soy el index</h1>
+
+    {% if user.is_authenticated %}
+        <p>Hola {{user.username}}</p>
+    {% endif %}
+{% endblock contenido %}
