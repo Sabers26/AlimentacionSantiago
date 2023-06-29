@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'app/'%}css/confirmacion.css">
+{% endblock css %}
+
+{% block contenido%}
+
+    <form action="" method="post">
+        <section class="form-registro">
+            <h1><!-- aqui va el mensaje --> ¿Seguro que quiere eliminar si cuenta?</h1>
+            <input class="eliminar" type="submit" value="Confirmar">
+            <input class="boton" type="submit" value="Cancelar">
+        </section>
+    </form>
+
+    {% endblock%}
