@@ -139,16 +139,20 @@ def ModificarCliente(request,rut):
             data['form'] = formulario
     return render(request, 'app/Modificar_Cuenta.html',data)
 
+
+@permission_required('app.add_cliente')
+def ConfirmarEliminacionCliente(request,rut):
+    cliente = rut
+    data = {
+       'cliente':cliente
+    }
+    
+    
+    return render(request, 'app/confirmacion.html',data)
+
 @permission_required('app.add_cliente')
 def EliminarCliente(request,rut):
     cliente = Cliente.objects.get(rut=rut)
-    data = {
-        'form':ClienteForm(instance=cliente)
-    }
-
-    if request.method == 'POST':
-        formulario = ClienteForm(data=request.POST, instance=cliente)
-        if formulario.is_valid():
-            cliente.delete()
+    cliente.delete()
     
-    return render(request, 'app/confirmacion.html',data)
+    return redirect(to='Listado')

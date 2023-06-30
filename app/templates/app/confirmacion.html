@@ -8,12 +8,11 @@
 
 {% block contenido%}
 
-    <form action="" method="post">
-        <section class="form-registro">
+        <section class="form-registro centrado">
             <h1><!-- aqui va el mensaje --> ¿Seguro que quiere eliminar si cuenta?</h1>
-            <input class="eliminar" type="submit" value="Confirmar">
-            <input class="boton" type="submit" value="Cancelar">
+            <br>
+            <a class="eliminar" href="{% url 'Eliminar' cliente %}">Eliminar</button>
+            <a class="boton"  onclick="" href="{% url 'Listado' %}">Cancelar</button>
         </section>
-    </form>
-
-    {% endblock%}
+           
+{% endblock%}

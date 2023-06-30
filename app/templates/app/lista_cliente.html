@@ -30,7 +30,7 @@
                             <td> {{i.correo}} </td>
         
                             <td><a class="Modificar" href="{% url 'Modificar' i.rut %}">Modificar</a></td>
-                            <td><a class="eliminar" href="{% url 'Eliminar' i.rut %}">Eliminar</a></td>
+                            <td><a class="eliminar" href="{% url 'Confirmar' i.rut %}">Eliminar</a></td>
                         </tr>
                     {% endfor %}
             </table>

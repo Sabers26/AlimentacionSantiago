@@ -9,5 +9,6 @@ urlpatterns = [
     path('ListadoClientes/',ListadoCliente, name="Listado"),
     path('ModificarCliente/<rut>/',ModificarCliente, name="Modificar"),
     path('EliminarCliente/<rut>/',EliminarCliente, name="Eliminar"),
+    path('ConfirmarEliminar/<rut>/',ConfirmarEliminacionCliente, name="Confirmar"),
     
 ]
