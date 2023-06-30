@@ -92,6 +92,10 @@ td a{
     background-color:#153986 ;
 }
 
+table{
+    padding-bottom: 23px;
+}
+
 
 select{
     background-color: #24303c ;

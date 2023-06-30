@@ -19,7 +19,19 @@
                     {% endfor %}
                 </ul>
             {% endif %}
-            <input class="controls" type="number" name="dv" id="dv" placeholder="ingrese su dv" value='{{data.dv}}'>
+            <h5>seleccione su dv</h5>
+            <select name="dv" id="dv">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="k">k</option>
+            </select>
             <input class="controls" type="text" name="nombre" id="nombre" placeholder="ingrese su nombre" value='{{data.nombre}}'>
             {% if errores.nombre %}
                 <ul class="errors">

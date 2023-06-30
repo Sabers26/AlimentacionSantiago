@@ -65,3 +65,7 @@
 .form-registro .boton:hover{
     background-color:#153986 ;
 }
+
+select{
+    margin-bottom: 7px;
+}

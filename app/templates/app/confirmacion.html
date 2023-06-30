@@ -10,10 +10,10 @@
     <form action="" method="post">
         {% csrf_token %}
         <section class="form-registro centrado">
-            <h1><!-- aqui va el mensaje --> ¿Seguro que quiere eliminar si cuenta?</h1>
+            <h1><!-- aqui va el mensaje --> ¿Seguro que quiere eliminar si cuenta? </h1>
             <br>
-            <a class="eliminar" href="{% url 'EliminarCliente' cliente %}">Eliminar</button>
-            <a class="boton"  onclick="" href="{% url 'ListadoCliente' %}">Cancelar</button>
+            <a class="eliminar" href="{% url 'EliminarCliente' cliente %}">Eliminar</a>
+            <a class="boton"  onclick="" href="{% url 'ListadoCliente' %}">Cancelar</a>
         </section>
     </form>
 {% endblock contenido %}
