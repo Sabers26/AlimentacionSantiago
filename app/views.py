@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import RegistroForm
 from . import models
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 
 # Create your views here.
 
@@ -113,4 +113,8 @@ def inicio_sesion(request):
     return render(request, 'app/registro/login.html', data)
 
 def inicio(request):
+    return render(request, 'app/index.html')
+
+def cerrar_sesion(request):
+    logout(request)
     return render(request, 'app/index.html')
