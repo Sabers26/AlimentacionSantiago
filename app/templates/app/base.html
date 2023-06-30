@@ -21,7 +21,7 @@
             <a href="{% url 'iniciar_sesion' %}">Iniciar Sesion</a>
         {% endif %}
         {% if perms.app.add_cliente %}
-            <a href="">Clientes</a>
+            <a href="{% url 'ListadoCliente' %}">Clientes</a>
         {% endif %}
         
         <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>

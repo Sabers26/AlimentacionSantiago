@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'app/'%}css/registro.css">
+{% endblock css %}
+
+{% block contenido%}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <section class="form-registro">
+            <center>
+                {% if user.is_authenticated %}
+                <h2> {{ user.username}} </h2>
+                {% endif %}
+                <h2 color="white">Modificar Cliente</h2>
+                <br>
+                    <table>
+                        {{form.as_table}}
+                    </table>
+                <input class="boton" type="reset" value="Limpiar">
+                <input class="boton" type="submit" value="Modificar">
+                {{mensaje}}
+                <a href="{% url 'ListadoCliente' %}">Volver</a>
+            </center>
+        </section>
+    </form>
+
+{% endblock%}

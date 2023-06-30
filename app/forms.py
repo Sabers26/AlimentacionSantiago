@@ -21,3 +21,15 @@ class RegistroForm(forms.ModelForm):
     class Meta:
         model = Cliente
         fields = ['rut', 'dv', 'nombre', 'apellido', 'correo']
+        
+class ClienteForm(forms.ModelForm):
+    class Meta:
+        model = Cliente
+        fields = ['rut','dv','nombre','apellido','correo']
+        widgets = {
+        'rut' : forms.TextInput(attrs={'class':'controls'}),
+        'dv' : forms.TextInput(attrs={'class':'controls'}),
+        'nombre' : forms.TextInput(attrs={'class':'controls'}),
+        'apellido' : forms.TextInput(attrs={'class':'controls'}),
+        'correo' : forms.TextInput(attrs={'class':'controls'}),
+        }

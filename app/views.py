@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import RegistroForm
-from . import models
+from .forms import *
+from .models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required, permission_required
 
 # Create your views here.
 
@@ -117,4 +118,41 @@ def inicio(request):
 
 def cerrar_sesion(request):
     logout(request)
-    return render(request, 'app/index.html')
+    return redirect(to=inicio)
+
+@permission_required('app.add_cliente')
+def ListadoCliente(request):
+    clientes = Cliente.objects.all()
+    data = {
+            'Clientes':clientes
+    }
+    return render(request, 'app/lista_cliente.html',data)
+
+@permission_required('app.add_cliente')
+def ModificarCliente(request,rut):
+    cliente = Cliente.objects.get(rut=rut)
+    data = {
+        'form':ClienteForm(instance=cliente)
+    }
+
+    if request.method == 'POST':
+        formulario = ClienteForm(data=request.POST, instance=cliente)
+        if formulario.is_valid():
+            formulario.save()
+            data['mensaje'] = "Modificado correctamente"
+            data['form'] = formulario
+    return render(request, 'app/Modificar_Cuenta.html',data)
+
+@permission_required('app.add_cliente')
+def EliminarCliente(request,rut):
+    cliente = Cliente.objects.get(rut=rut)
+    data = {
+        'form':ClienteForm(instance=cliente)
+    }
+
+    if request.method == 'POST':
+        formulario = ClienteForm(data=request.POST, instance=cliente)
+        if formulario.is_valid():
+            cliente.delete()
+    
+    return render(request, 'app/confirmacion.html',data)
