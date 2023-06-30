@@ -12,10 +12,30 @@
     <title>Document</title>
 </head>
 <body>
+    {% comment %} navbar {% endcomment %}
+    <div class="topnav" id="myTopnav">
+        <a href="#" class="active">Inicio</a>
+        {% if user.is_authenticated %}
+            <a href="#">{{user.username}}: cerrar sesion</a>
+        {% else %}
+            <a href="#">Iniciar Sesion</a>
+        {% endif %}
+        <a href="#">Clientes</a>
+        
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i></a>
+    </div>
+
     <div class="container">
         {% block contenido %}
         
         {% endblock contenido %}
     </div>
+    <!-- footer -->
+    <footer>
+        <div class="footer">
+        <p>Dirijete a cualquiera de nuestras redes sociales</p>
+        <a href="#"><img src="{% static 'app/'%}img/pepoclown.gif" width="70px" /></a>
+        </div>
+    </footer>
 </body>
 </html>
