@@ -1,0 +1,50 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'app/'%}css/registro.css">
+{% endblock css %}
+
+{% block contenido %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <section class="form-registro">
+            <h4>Formulario Registro</h4>
+            <input class="controls" type="number" name="rut" id="rut" placeholder="ingrese su rut" value='{{data.rut}}'>
+            {% if errores.rut %}
+                <ul class="errors">
+                    {% for error in errores.rut %}
+                    <li>{{ error.message|capfirst }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <input class="controls" type="number" name="dv" id="dv" placeholder="ingrese su dv" value='{{data.dv}}'>
+            <input class="controls" type="text" name="nombre" id="nombre" placeholder="ingrese su nombre" value='{{data.nombre}}'>
+            {% if errores.nombre %}
+                <ul class="errors">
+                    {% for error in errores.nombre %}
+                    <li>{{ error.message|capfirst }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <input class="controls" type="text" name="apellido" id="apellido" placeholder="ingrese su apellido" value='{{data.apellido}}'>
+            {% if errores.apellido %}
+                <ul class="errors">
+                    {% for error in errores.apellido %}
+                    <li>{{ error.message|capfirst }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <input class="controls" type="email" name="correo" id="correo" placeholder="ingrese su correo" value='{{data.correo}}'>
+            <input class="controls" type="text" name="usuario" id="usuario" placeholder="ingrese su usuario" value='{{data.usuario}}'>
+            {{error_user}}
+            <input class="controls" type="password" name="password" id="password" placeholder="ingrese su contraseña" value='{{data.password}}'>
+            {{error_pass}}
+            <p><a href="#">terminos y condiciones</a></p>
+            {{mensaje}}
+            <input class="boton" type="submit" value="registrar">
+            <p><a href="#">¿ya tengo cuenta?</a></p>
+        </section>
+    </form>
+{% endblock contenido %}

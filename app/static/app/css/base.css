@@ -1,0 +1,9 @@
+body{
+    background-color: black;
+    background-image: url("imgs/fondo.jpg");
+    background-repeat: no-repeat;
+    background-position: 30% 5%;
+}
+h1{
+    color: white;
+}

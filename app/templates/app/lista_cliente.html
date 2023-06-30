@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'app/'%}css/lista_cliente.css">
+{% endblock css %}
+
+{% block contenido%}
+    <form action="" method="post">
+        <section class="form-registro">
+            <h4>Lista de Cuentas</h4>
+            <table>
+                    <tr>
+                        <th >Rut</th>
+                        <th >Dv</th>
+                        <th >Nombre</th>
+                        <th>Apellido</th>
+                        <th>Usuario</th>
+                        <th>Correo</th>
+                    </tr>
+                
+                    {% for i in Clientes %}
+                        <tr>
+                            <td>{{i.rut}}</td>
+                            <td> {{i.dv}} </td>
+                            <td> {{i.nombre}} </td>
+                            <td> {{i.apellido}} </td>
+                            <td> {{i.usuario}} </td>
+                            <td> {{i.correo}} </td>
+        
+                            <td><a class="Modificar" href="{% url 'Modificar' i.rut %}">Modificar</a></td>
+                            <td><a class="eliminar" href="{% url 'Confirmar' i.rut %}">Eliminar</a></td>
+                        </tr>
+                    {% endfor %}
+            </table>
+        </section>
+    </form>
+{% endblock%}

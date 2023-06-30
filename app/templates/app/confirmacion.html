@@ -1,0 +1,18 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'app/'%}css/confirmacion.css">
+{% endblock css %}
+
+{% block contenido%}
+
+        <section class="form-registro centrado">
+            <h1><!-- aqui va el mensaje --> ¿Seguro que quiere eliminar si cuenta?</h1>
+            <br>
+            <a class="eliminar" href="{% url 'Eliminar' cliente %}">Eliminar</button>
+            <a class="boton"  onclick="" href="{% url 'Listado' %}">Cancelar</button>
+        </section>
+           
+{% endblock%}
