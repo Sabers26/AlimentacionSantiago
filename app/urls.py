@@ -9,5 +9,6 @@ urlpatterns = [
     path('logout/', cerrar_sesion, name='cerrar_sesion'),
     path('clientes/', ListadoCliente, name='ListadoCliente'),
     path('modificar/<rut>', ModificarCliente, name='ModificarCliente'),
-    path('eliminar/<rut>', EliminarCliente, name='EliminarCliente')
+    path('eliminar/<rut>', EliminarCliente, name='EliminarCliente'),
+    path('confirmarEliminar/<rut>/',ConfirmarEliminacionCliente, name="Confirmar"),
 ]
