@@ -157,4 +157,4 @@ def EliminarCliente(request,rut):
     cliente = Cliente.objects.get(rut=rut)
     cliente.delete()
     
-    return redirect(to='Listado')
+    return redirect(to='ListadoCliente')
