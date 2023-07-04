@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import RegexValidator, MinLengthValidator, MinValueValidator, MaxLengthValidator, MaxValueValidator
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.utils import timezone
 # Create your models here.
 
 #Validacion de los campos de usuario
@@ -49,3 +50,21 @@ class Cliente(models.Model):
     
     def __str__(self):
         return str(f'{self.rut}')
+
+
+def validad_fecha(value):
+    if value > timezone.now().date():
+        raise ValidationError("La fecha no puede ser una fecha futura.")
+
+class Venta(models.Model):
+    id = models.AutoField(primary_key=True)
+    fecha = models.DateField(validators=[validad_fecha],unique=True)
+    numero_ventas = models.IntegerField(validators=[MinValueValidator(0)])
+    costos = models.IntegerField(default=1000,validators=[MinValueValidator(0)])
+    ingresos = models.IntegerField(default=0,validators=[MinValueValidator(0)])
+
+    def totalIng(self):
+        return self.costos - self.ingresos
+
+    def __str__(self):
+        return str(f'{self.fecha}')
