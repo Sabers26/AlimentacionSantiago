@@ -11,4 +11,6 @@ urlpatterns = [
     path('modificar/<rut>', ModificarCliente, name='ModificarCliente'),
     path('eliminar/<rut>', EliminarCliente, name='EliminarCliente'),
     path('confirmarEliminar/<rut>/',ConfirmarEliminacionCliente, name="Confirmar"),
+    path('listaVentas/',listado_ventas, name='listado'),
+    path('descarga/resumen-ventas-global/',descarga_ventas, name='descarga'),
 ]

@@ -1,0 +1,45 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'app/'%}css/listado.css">
+{% endblock css %}
+
+{% block contenido %}
+    <form action="" method="post">
+        <section class="form-registro">
+            <h4>Lista de Ventas</h4>
+
+            <p>Seleccione el periodo</p>
+            <select>
+                <option value="1">enero</option>
+                <option value="2">febrero</option>
+                <option value="3">marzo</option>
+                <option value="4">abril</option>
+                <option value="5">mayo</option>
+                <option value="6">junio</option>
+                <option value="7" selected>julio</option>
+                <option value="8">agosto</option>
+                <option value="9">septiembre</option>
+                <option value="10">octubre</option>
+                <option value="11">noviembre</option>
+                <option value="12">diciembre</option>
+            </select>
+            <table>
+                    <tr>
+                        <th>periodo</th>
+                        <th>numero de ventas</th>
+                        <th>monto total ventas</th>
+                    </tr>
+
+                    <tr>
+                        <td>julio</td>
+                        <td>20</td>
+                        <td>$150.000</td>
+                    </tr>
+            </table>
+            <a class="descargar" href="{% url 'descarga' %}">descargar resumen</a>
+        </section>
+    </form>
+{% endblock contenido %}

@@ -1,0 +1,148 @@
+body {
+    background-color: black;
+    background-image: url("../img/fondo.jpg");
+    background-repeat: no-repeat;
+    background-position: 30% 5%;
+}
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.form-registro{
+    width: 500px;
+    background-color: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px ;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+}
+
+.form-registro h4{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+th{
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+td{
+    border: 3px solid black;
+}
+
+.controls{
+    width: 100%;
+    background-color: #24303c;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: white;
+}
+
+.form-registro p{
+    height: 40px;
+    text-align:center ;
+    font-size: 18px;
+    line-height: 40px;
+    margin-bottom: 10px;
+}
+
+.form-registro a{
+    color: white;
+    text-decoration: none;
+}
+
+.form-registro a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.boton{
+    width: 49%;
+    background-color:#1f53c5 ;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.confirmar{
+    background-color:#1f53c5 ;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.confirmar:hover{
+    background-color:#21c737 ;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 10px 0;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.cancelar{
+    background-color:#1f53c5 ;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.cancelar:hover{
+    background-color:#c72121 ;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 10px 0;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+td a{
+    text-decoration: none;
+}
+
+.form-registro .boton:hover{
+    background-color:#153986 ;
+}
+
+table{
+    padding-bottom: 23px;
+}
+
+
+select{
+    background-color: #24303c ;
+    color: white;
+}
+
+.centrado{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+div a{
+    width: 49%;
+}
+
+.form-registro .confirmar{
+    width: 100px;
+}

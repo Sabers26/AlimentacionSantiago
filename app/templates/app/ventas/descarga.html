@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'app/'%}css/descarga.css">
+{% endblock css %}
+
+{% block contenido %}
+    <form action="" method="post">
+        <section class="form-registro">
+            <h4>¿Seguro Que Desea Descargar Este Archivo?</h4>
+            <p>Resumen_de_ventas_julio.xlxs</p>
+            <div class="centrado">
+                <a class="confirmar" href="{% url 'listado' %}">Confirmar</a>
+                <a class="cancelar" href="{% url 'listado' %}">Cancelar</a>
+            </div>
+        </section>
+    </form>
+{% endblock contenido %}

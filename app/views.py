@@ -158,3 +158,9 @@ def EliminarCliente(request,rut):
     cliente.delete()
     
     return redirect(to='ListadoCliente')
+
+def listado_ventas(request):
+    return render(request, 'app/ventas/listado.html')
+
+def descarga_ventas(request):
+    return render(request, 'app/ventas/descarga.html')
